@@ -76,7 +76,7 @@ app.post('/login', (req, res) => {
     password,
     (err, row) => {
       if (err) {
-        res.status(500).send('Error en el servidor');
+        res.status(500).send('Error en el servido');
       } else if (!row) {
         res.status(409).send('Nombre de usuario o correo electrónico o contraseña incorrectos');
       } else {
