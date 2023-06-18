@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Handromeda Shop</title>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+            <!-- Navegación -->
+            <nav class="navC">
+                <h1>Handromeda Shop</h1>
+                <ul class="navUl">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+                <ul id="userActions">
+
+                </ul>
+            </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de bienvenida -->
+        <section class="titulo">
+            <h2>Bienvenido a Handromeda Shop</h2>
+            <p>¡Encuentra la mejor selección de ropa y accesorios en Handromeda Shop! Ofrecemos las últimas tendencias de moda para hombres, mujeres y niños.</p>
+            <img src="handromeda-logo.png"  class="saturno" alt="Logo de Handromeda Shop">
+        </section>
+
+        <!-- Sección de productos -->
+        <section class="productosC">
+            <h2>Productos</h2>
+            <ul class="productosUl">
+                <li>
+                    <h3>Vestidos</h3>
+                    <img src="vestido1.jpg" alt="Vestido 1">
+                    <p>Vestido Rojo.</p>
+                </li>
+                <li>
+                    <h3>Zapatos</h3>
+                    <img src="zapatos1.jpg" alt="Zapatos 1">
+                    <p>Zapatos Casuales.</p>
+                </li>
+                <li>
+                    <h3>Camisas</h3>
+                    <img src="camisa1.jpg" alt="Camisa 1">
+                    <p>Franela blanca.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Sección de ofertas -->
+        <section>
+            <h2>Ofertas</h2>
+            <p>¡Aprovecha nuestras ofertas especiales y descuentos en una amplia selección de productos!</p>
+            <video src="oferta.mp4" controls></video>
+        </section>
+
+        <!-- Sección de contacto -->
+        <section>
+            <h2>Contacto</h2>
+            <form>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Derechos de autor &copy; 2023 Handromeda Shop. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- App.js -->
+    <script src="app.js"></script>
+    <script>
+        const userActions = document.getElementById('userActions');
+        const username = getCookie('username');
+        console.log(username)
+        if (username !== null) {
+            // Usuario autenticado
+
+            const usernameElement = document.createElement('li');
+            usernameElement.textContent = username;
+            userActions.appendChild(usernameElement);
+
+            const logoutButton = document.createElement('li');
+            const logoutButton1 = document.createElement('a');
+            logoutButton1.href = '#';
+            logoutButton1.textContent = 'Cerrar sesión';
+            logoutButton.onclick = logout;
+            userActions.appendChild(logoutButton);
+            logoutButton.appendChild(logoutButton1);
+        } else {
+            const inicioS = document.createElement('li');
+            const inicioS1 = document.createElement('a');
+            inicioS1.href = '#';
+            inicioS1.textContent = 'Inicia Sesion';
+            inicioS.onclick = redirect1;
+            userActions.appendChild(inicioS);
+            inicioS.appendChild(inicioS1);
+
+
+            const registroU = document.createElement('li');
+            const registroU1 = document.createElement('a');
+            registroU1.href = '#';
+            registroU1.textContent = 'Registrate';
+            registroU.onclick = redirect;
+            userActions.appendChild(registroU);
+            registroU.appendChild(registroU1)
+
+        }
+
+        function getCookie(name) {
+            const cookieValue = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return cookieValue ? cookieValue[2] : null;
+        }
+
+        function logout() {
+            document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.reload();
+        }
+
+        function redirect() {
+            window.location.href = '/registro.html';
+        }
+
+        function redirect1() {
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+</html>

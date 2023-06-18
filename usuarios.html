@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Usuarios Registrados</title>
+</head>
+<body>
+  <h1>Usuarios Registrados</h1>
+  <ul id="userList"></ul>
+
+  <script>
+    // Función para cargar la lista de usuarios al cargar la página
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('/usuarios')
+        .then((response) => response.json())
+        .then((data) => {
+          const userList = document.getElementById('userList');
+
+          // Generar elementos de lista para cada usuario registrado
+          data.forEach((user) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Usuario: ${user.username}, Correo: ${user.correo}`;
+            userList.appendChild(listItem);
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
+  </script>
+</body>
+</html>
