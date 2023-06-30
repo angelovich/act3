@@ -53,11 +53,23 @@
       text-align: center;
       margin-top: 15px;
     }
+    .inicio{
+      border-radius: 5px;
+      line-height: 30px;
+      margin: 30px;
+      padding: 10px 30px;
+      background-color: #606060;
+      color: white;
+      text-decoration: none;
+    }
+    .inicio:hover{
+      background-color: black;
+    }
   </style>
 </head>
 <body>
+  <a href="index.html" class="inicio">Inicio</a>
   <h1>Iniciar sesión</h1>
-  
   <form id="loginForm" method="POST" action="/login">
     <div>
       <label for="usernameOrEmail">Nombre de usuario o correo electrónico:</label>
@@ -69,10 +81,12 @@
     </div>
     <div>
       <button type="submit">Iniciar sesión</button>
+      <p id="mensajeLogin"></p>
+      <a href="registro.html">No tienes cuenta?</a>
     </div>
   </form>
 
-  <p id="mensajeLogin"></p>
+  
 
   <script>
     // Agregar un listener para capturar el envío del formulario

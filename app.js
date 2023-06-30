@@ -12,17 +12,11 @@ const db = new sqlite3.Database(':memory:');
 db.serialize(() => {
   db.run('CREATE TABLE usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, correo TEXT, password TEXT)');
 });
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  const username = req.cookies.username;
-  if (username) {
     res.sendFile(__dirname + '/index.html');
-  } else {
-    res.redirect('/login');
-  }
 });
 
 app.get('/registro', (req, res) => {

@@ -54,9 +54,22 @@
       text-align: center;
       margin-top: 15px;
     }
+    .inicio{
+      border-radius: 5px;
+      line-height: 30px;
+      margin: 30px;
+      padding: 10px 30px;
+      background-color: #606060;
+      color: white;
+      text-decoration: none;
+    }
+    .inicio:hover{
+      background-color: black;
+    }
   </style>
 </head>
 <body>
+  <a href="index.html" class="inicio">Inicio</a>
   <h1>Registro de Usuario</h1>
   <form id="registroForm" action="/registro" method="POST">
     <label for="username">Usuario:</label>
@@ -70,6 +83,7 @@
 
     <button type="submit">Registrarse</button>
     <p id="mensajeRegistro"></p>
+    <a href="login.html">Tienes cuenta?</a>
   </form>
 
   <script>

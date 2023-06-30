@@ -8,36 +8,18 @@
     <title>Handromeda Shop</title>
     <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
     <style>
-        .carousel-container {
-          position: relative;
-          overflow: hidden;
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-    
-        .carousel {
-          display: flex;
-          width: fit-content;
-          transition: transform 0.5s ease;
+        main {
+            flex-grow: 1;
         }
-    
-        .product {
-          flex: 0 0 70%;
-          height: 200px;
-          border: 1px solid #ccc;
-          margin: 10px;
-          padding: 10px;
-          box-sizing: border-box;
-        }
-    
-        .controls {
-          display: flex;
-          justify-content: center;
-          margin-top: 10px;
-        }
-    
-        .control-button {
-          padding: 5px;
-          margin: 0 5px;
-          cursor: pointer;
+        section{
+            margin: auto;
+            max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
+            flex-grow: 1;
         }
     </style>
 </head>
@@ -51,16 +33,16 @@
                   </button>
                   <ul id="userActions" class="nav-menu">
                     <li class="nav-menu-item">
-                        <a href="index.html" class="nav-menu-link nav-link">Inicio</a>
+                      <a href="index.html" class="nav-menu-link nav-link">Inicio</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a href="productos.html" class="nav-menu-link nav-link">Productos</a>
+                      <a href="productos.html" class="nav-menu-link nav-link">Productos</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a href="ofertas.html" class="nav-menu-link nav-link">Ofertas</a>
+                      <a href="ofertas.html" class="nav-menu-link nav-link">Ofertas</a>
                     </li>
                     <li class="nav-menu-item">
-                        <a href="contacto.html" class="nav-menu-link nav-link espacio">Contacto</a>
+                      <a href="contacto.html" class="nav-menu-link nav-link">Contacto</a>
                     </li>
                     <li class="espacio"></li>
                   </ul>
@@ -69,54 +51,11 @@
               </header>
 
     <!-- Contenido principal -->
-    <main>
-        <!-- Sección de bienvenida -->
+    <main class="espacio-pantalla">
         <section class="titulo">
-            <h2>Bienvenido a Handromeda Shop</h2>
-            <p>¡Encuentra la mejor selección de ropa y accesorios en Handromeda Shop! Ofrecemos las últimas tendencias de moda para hombres, mujeres y niños. NO TE LO PIERDAS!</p>
+            <h2>Contáctanos</h2>
+            <p>Si tienes alguna pregunta, sugerencia o deseas contactarnos, no dudes en hacerlo. Puedes enviarnos un correo electrónico a <a href="mailto:angel@gmail.com">angel@gmail.com</a> o llamarnos al siguiente número de teléfono: <a href="tel:+584141764381">0414-1764381</a>. Estamos disponibles para atender tus consultas y brindarte la ayuda que necesitas. ¡Esperamos saber de ti pronto!</p>
             <img src="handromeda-logo.png"  class="saturno" alt="Logo de Handromeda Shop">
-        </section>
-
-        <!-- Sección de productos -->
-        <section class="productosC">
-            <h2>Productos</h2>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <img src="camisa1.jpg" class="product">
-                    <img src="vestido1.jpg" class="product">
-                    <img src="zapatos1.jpg" class="product">
-                  </div>
-                </div>
-              </div>
-              <div class="controls">
-                <div class="control-button" onclick="slide('left')">&#10094;</div>
-                <div class="control-button" onclick="slide('right')">&#10095;</div>
-              </div>
-            
-        </section>
-
-        <!-- Sección de ofertas -->
-        <section>
-            <h2>Ofertas</h2>
-            <p>¡Aprovecha nuestras ofertas especiales y descuentos en una amplia selección de productos!</p>
-            <video src="oferta.mp4" autoplay muted></video>
-        </section>
-
-        <!-- Sección de contacto -->
-        <section>
-            <h2>Contacto</h2>
-            <form>
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <input type="submit" value="Enviar">
-            </form>
         </section>
     </main>
 
@@ -196,20 +135,6 @@
             navToggle.setAttribute("aria-label", "Abrir menú");
         }
 });
-        const carousel = document.querySelector('.carousel');
-    const productWidth = document.querySelector('.product').offsetWidth;
-    const carouselWidth = carousel.offsetWidth;
-    const maxSlide = Math.floor(carouselWidth / productWidth);
-    let currentSlide = 0;
-
-    function slide(direction) {
-      if (direction === 'left') {
-        currentSlide = Math.max(currentSlide - 1, 0);
-      } else {
-        currentSlide = Math.min(currentSlide + 1, carousel.childElementCount - maxSlide);
-      }
-      carousel.style.transform = `translateX(-${currentSlide * productWidth}px)`;
-    }
     </script>
 </body>
 </html>
